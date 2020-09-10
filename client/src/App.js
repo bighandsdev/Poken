@@ -5,7 +5,13 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = {
+    storageValue: 0,
+    web3: null,
+    accounts: null,
+    contract: null,
+    newValue: "",
+  };
 
   componentDidMount = async () => {
     try {
@@ -20,7 +26,7 @@ class App extends Component {
       const deployedNetwork = SimpleStorageContract.networks[networkId];
       const instance = new web3.eth.Contract(
         SimpleStorageContract.abi,
-        deployedNetwork && deployedNetwork.address,
+        deployedNetwork && deployedNetwork.address
       );
 
       // Set web3, accounts, and contract to the state, and then proceed with an
@@ -29,11 +35,21 @@ class App extends Component {
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`,
+        `Failed to load web3, accounts, or contract. Check console for details.`
       );
       console.error(error);
     }
   };
+  handleChange(event) {
+    this.setState({ newValue: event.target.value });
+  }
+  async handleSubmit(event) {
+    event.preventDefault();
+    const { accounts, contracts } = this.state;
+    await contracts.set(this.state.newValue, { from: accounts[0] });
+    const response = await contracts.get();
+    this.setState({ storageValue: response });
+  }
 
   runExample = async () => {
     const { accounts, contract } = this.state;
@@ -54,16 +70,15 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
-        </p>
-        <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
-        </p>
+        <h1>DegenFinance Test enviroment</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.newValue}
+            onChange={this.handleChange.bind(this)}
+          />
+          <input type="submit" value="submit" />
+        </form>
         <div>The stored value is: {this.state.storageValue}</div>
       </div>
     );
