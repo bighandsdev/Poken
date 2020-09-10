@@ -6,7 +6,7 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    storageValue: 0,
+    storageValue: "",
     web3: null,
     accounts: null,
     contract: null,
@@ -15,6 +15,8 @@ class App extends Component {
 
   componentDidMount = async () => {
     try {
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
 
@@ -45,9 +47,9 @@ class App extends Component {
   }
   async handleSubmit(event) {
     event.preventDefault();
-    const { accounts, contracts } = this.state;
-    await contracts.set(this.state.newValue, { from: accounts[0] });
-    const response = await contracts.get();
+    const { accounts, contract } = this.state;
+    await contract.methods.set(this.state.newValue).send({ from: accounts[0] });
+    const response = await contract.methods.get().call();
     this.setState({ storageValue: response });
   }
 
@@ -55,7 +57,7 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.methods.set(5).send({ from: accounts[0] });
+    await contract.methods.set("g").send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.get().call();
@@ -72,14 +74,17 @@ class App extends Component {
       <div className="App">
         <h1>DegenFinance Test enviroment</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.newValue}
-            onChange={this.handleChange.bind(this)}
-          />
-          <input type="submit" value="submit" />
+          <div>
+            <input
+              type="text"
+              value={this.state.newValue}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Submit" />
+          </div>
         </form>
-        <div>The stored value is: {this.state.storageValue}</div>
+        <div>The stored value is:</div>
+        <h1>{this.state.storageValue}</h1>
       </div>
     );
   }
