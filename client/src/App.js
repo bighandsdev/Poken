@@ -11,6 +11,7 @@ class App extends Component {
     accounts: null,
     contract: null,
     newValue: "",
+    owner: null,
   };
 
   componentDidMount = async () => {
@@ -57,7 +58,7 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.methods.set("g").send({ from: accounts[0] });
+    await contract.methods.set("Change this text").send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.get().call();
@@ -73,6 +74,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>DegenFinance Test enviroment</h1>
+        <p>Contract owner is {this.state.</p>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
