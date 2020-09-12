@@ -58,13 +58,18 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.methods.set("Change this text").send({ from: accounts[0] });
+    await contract.methods.set("g").send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.get().call();
 
-    // Update state with the result.
     this.setState({ storageValue: response });
+
+    const response2 = await contract.methods.whoOwnsThisContract().call();
+    // Update state with the result.
+    this.setState({ owner: response2 });
+
+    // Update state with the result.
   };
 
   render() {
@@ -74,7 +79,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>DegenFinance Test enviroment</h1>
-        <p>Contract owner is {this.state.</p>
+        <p>Owner: {this.state.owner}</p>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input

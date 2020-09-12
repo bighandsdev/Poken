@@ -10,17 +10,17 @@ contract SimpleStorage {
         owner = _owner;
     }
 
-    function withdraw() public {
-        require(msg.sender == owner, "NOT THE OWNER!");
-        msg.sender.transfer((address(this)).balance);
-    }
-
     function set(string memory input) public {
         changeAbleText = input;
     }
 
     function get() public view returns (string memory) {
         return changeAbleText;
+    }
+
+    function withdraw() public {
+        require(msg.sender == owner, "NOT THE OWNER!");
+        msg.sender.transfer((address(this)).balance);
     }
 
     function whoOwnsThisContract() public view returns (address) {
