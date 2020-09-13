@@ -61,6 +61,7 @@ class App extends Component {
     await contract.methods.set("Changed this text").send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
+
     const response = await contract.methods.get().call();
 
     this.setState({ storageValue: response });
@@ -69,9 +70,9 @@ class App extends Component {
   };
   getOwner = async () => {
     const { accounts, contract } = this.state;
-    const response2 = await contract.methods.getChangedBy().call();
-    // Update state with the result.
-    this.setState({ owner: response2.toString() });
+
+    const response2 = await contract.getChangedBy().call();
+
     console.log("response2");
     console.log(response2);
   };
@@ -85,7 +86,7 @@ class App extends Component {
         <h1>DegenFinance Test enviroment</h1>
         <span>
           <p>Owner: {this.state.owner}</p>
-          <button onClick={() => this.getOwner}>Find owner</button>
+          <button onClick={this.getOwner}>Find owner</button>
         </span>
 
         <form onSubmit={this.handleSubmit}>
