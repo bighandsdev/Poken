@@ -31,7 +31,6 @@ class App extends Component {
         SimpleStorageContract.abi,
         deployedNetwork && deployedNetwork.address
       );
-
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
       this.setState({ web3, accounts, contract: instance }, this.runExample);
@@ -71,10 +70,11 @@ class App extends Component {
   getOwner = async () => {
     const { accounts, contract } = this.state;
 
-    const response2 = await contract.getChangedBy().call();
+    const response2 = await contract.methods.get2().call();
 
     console.log("response2");
     console.log(response2);
+    this.setState({ owner: response2 });
   };
 
   render() {
