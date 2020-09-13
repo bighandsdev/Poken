@@ -58,16 +58,18 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.methods.set("g").send({ from: accounts[0] });
+    await contract.methods.set("Changed this text").send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.get().call();
 
     this.setState({ storageValue: response });
 
-    const response2 = await contract.methods.whoOwnsThisContract().call();
+    const response2 = await contract.methods.getChangedBuy().call();
     // Update state with the result.
-    this.setState({ owner: response2 });
+    this.setState({ owner: response2.toString() });
+    console.log("response2");
+    console.log(response2);
 
     // Update state with the result.
   };

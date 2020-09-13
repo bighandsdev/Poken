@@ -3,27 +3,26 @@ pragma solidity >=0.4.21 <0.7.0;
 
 contract SimpleStorage {
     string changeAbleText;
-    address public owner;
+    address public changedBuy;
 
-    constructor(string memory input, address _owner) public {
-        changeAbleText = input;
-        owner = _owner;
+    constructor(string memory input) public {
+        changeAbleText = "Change this word";
+        changedBuy = msg.sender;
     }
 
+    // SET AND GET to interact with the changeable text
     function set(string memory input) public {
         changeAbleText = input;
+        changedBuy = msg.sender;
     }
 
     function get() public view returns (string memory) {
         return changeAbleText;
     }
 
-    function withdraw() public {
-        require(msg.sender == owner, "NOT THE OWNER!");
-        msg.sender.transfer((address(this)).balance);
-    }
+    //GET to change who interacted with the text last
 
-    function whoOwnsThisContract() public view returns (address) {
-        return owner;
+    function getChangedBuy() public view returns (address) {
+        return changedBuy;
     }
 }
