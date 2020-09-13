@@ -3,17 +3,17 @@ pragma solidity >=0.4.21 <0.7.0;
 
 contract SimpleStorage {
     string changeAbleText;
-    address public changedBuy;
+    address public changedBy;
 
     constructor(string memory input) public {
         changeAbleText = "Change this word";
-        changedBuy = msg.sender;
+        changedBy = msg.sender;
     }
 
     // SET AND GET to interact with the changeable text
     function set(string memory input) public {
         changeAbleText = input;
-        changedBuy = msg.sender;
+        changedBy = msg.sender;
     }
 
     function get() public view returns (string memory) {
@@ -22,7 +22,7 @@ contract SimpleStorage {
 
     //GET to change who interacted with the text last
 
-    function getChangedBuy() public view returns (address) {
-        return changedBuy;
+    function getChangedBy() public view returns (address) {
+        return changedBy;
     }
 }

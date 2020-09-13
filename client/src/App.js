@@ -65,13 +65,15 @@ class App extends Component {
 
     this.setState({ storageValue: response });
 
-    const response2 = await contract.methods.getChangedBuy().call();
+    // Update state with the result.
+  };
+  getOwner = async () => {
+    const { accounts, contract } = this.state;
+    const response2 = await contract.methods.getChangedBy().call();
     // Update state with the result.
     this.setState({ owner: response2.toString() });
     console.log("response2");
     console.log(response2);
-
-    // Update state with the result.
   };
 
   render() {
@@ -81,7 +83,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>DegenFinance Test enviroment</h1>
-        <p>Owner: {this.state.owner}</p>
+        <span>
+          <p>Owner: {this.state.owner}</p>
+          <button onClick={() => this.getOwner}>Find owner</button>
+        </span>
+
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
