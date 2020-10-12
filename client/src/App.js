@@ -70,7 +70,7 @@ class App extends Component {
   getOwner = async () => {
     const { accounts, contract } = this.state;
 
-    const response2 = await contract.methods.get2().call();
+    const response2 = await contract.methods.getWhoLastChangedTheWord().call();
 
     console.log("response2");
     console.log(response2);
@@ -84,10 +84,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>DegenFinance Test enviroment</h1>
-        <span>
-          <p>Owner: {this.state.owner}</p>
-          <button onClick={this.getOwner}>Find owner</button>
-        </span>
+        <div>
+          <p>
+            Who last changed the word: {this.state.owner}{" "}
+            <button className="button" onClick={this.getOwner}>
+              Reveal
+            </button>
+          </p>
+        </div>
 
         <form onSubmit={this.handleSubmit}>
           <div>

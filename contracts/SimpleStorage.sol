@@ -20,9 +20,7 @@ contract SimpleStorage {
         return changeAbleText;
     }
 
-    //GET to change who interacted with the text last
-
-    function get2() public view returns (address) {
+    function getWhoLastChangedTheWord() public view returns (address) {
         return changedBy;
     }
 }
