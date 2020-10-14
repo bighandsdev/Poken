@@ -1,3 +1,3 @@
-# degenfinance_eth_smartcontract
-# Poken
-# Poken
+## Poken
+
+Ethereum decentralised application
