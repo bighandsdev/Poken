@@ -2,6 +2,7 @@
 pragma solidity ^0.7.0;
 
 import "./SafeMath.sol";
+import "./Ownable.sol";
 
 contract Poken is Ownable {
   using SafeMath for uint256;
@@ -20,8 +21,8 @@ contract Poken is Ownable {
   event Approval(address indexed owner, address indexed spender, uint256 value);
 
   constructor() Ownable(msg.sender) {
-    _name = "Devil";
-    _symbol = "DEV";
+    _name = "Poken";
+    _symbol = "POKE";
     _decimals = 18;
 
     _totalSupply = 20000 * 1e18;
