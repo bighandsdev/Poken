@@ -83,28 +83,8 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>DegenFinance Test enviroment</h1>
-        <div>
-          <p>
-            Who last changed the word: {this.state.owner}{" "}
-            <button className="button" onClick={this.getOwner}>
-              Reveal
-            </button>
-          </p>
-        </div>
-
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.newValue}
-              onChange={this.handleChange}
-            />
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
-        <div>The stored value is:</div>
-        <h1>{this.state.storageValue}</h1>
+        <h1>Poken Testing Ground</h1>
+        <a>Button</a>
       </div>
     );
   }
