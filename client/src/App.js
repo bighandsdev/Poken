@@ -76,14 +76,30 @@ class App extends Component {
     console.log(response2);
     this.setState({ owner: response2 });
   };
+  interFace = () => {
+    return (
+      <div className="card">
+        <div id="header">
+          <div>
+            <p>Balance</p>
+          </div>
+          <div>
+            <p>Supply</p>
+          </div>
+          <div>
+            <p>Withdraw</p>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    );
+  };
 
   render() {
-    if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
-    }
     return (
       <div className="App">
         <h1>Poken Testing Ground</h1>
+        {this.interFace}
         <a>Button</a>
       </div>
     );
