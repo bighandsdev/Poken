@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class deposit extends React.Component {
+export default class Deposit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};

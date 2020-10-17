@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import Balance from "./components/balance.js";
@@ -7,13 +7,10 @@ import Withdraw from "./components/withdraw.js";
 
 import "./App.css";
 
-class App extends Component {
-  state = {
-    interface: "Balance",
-  };
-
-  componentDidMount = async () => {};
-  card = () => {
+function App() {
+  const interfaced = "withdraw";
+  const componentDidMount = async () => {};
+  const card = () => {
     return (
       <div className="card">
         <div className="cardheader">
@@ -27,29 +24,35 @@ class App extends Component {
             <p>Withdraw</p>
           </div>
         </div>
-        <div>{this.whichInterface()}</div>
+        <div>{whichInterface()}</div>
       </div>
     );
   };
-  whichInterface = () => {
-    switch (this.state.interface) {
-      case "Balance":
-        return <Balance />;
-      case "Deposit":
-        return <Deposit />;
+  const whichInterface = () => {
+    var result = null;
+    switch (interfaced) {
+      case "balance":
+        result = <Balance />;
+        break;
+      case "deposit":
+        result = <Deposit />;
+        break;
       case "withdraw":
-        return <Withdraw />;
+        result = <Withdraw />;
+        break;
+      default:
+        result = <Balance />;
     }
+
+    return result;
   };
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Poken</h1>
-        {this.card()}
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <h1>Poken</h1>
+      {card()}
+    </div>
+  );
 }
 
 export default App;
