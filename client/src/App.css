@@ -1,13 +1,5 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App {
-  background-color: #000000;
+  background-color: #17141d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,48 +8,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #09d3ac;
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #17141d;
+  color: white;
+  font-family: "DM Mono", monospace;
 }
-.button {
-  float: right;
-}
-.container2 {
-  border-radius: 20px;
-  width: 200px;
-  height: fit-content;
-  padding: 70px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: auto;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: rgb(226, 207, 213) 4px 4px 8px inset,
-    rgb(247, 242, 244) -6px -6px 12px inset;
-  font-size: 10px;
-  background: rgb(240, 231, 234);
-  border-width: 0px;
-  border-style: solid;
-  border-color: rgb(226, 207, 213);
-  border-image: initial;
-  border-radius: 12px;
-  color: #651962;
-  font-family: "Nunito", sans-serif;
-}
-#estimatedprizeamount {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #d1004b;
-  font: Arial;
-  height: 30px;
-}
-#estimatedprizetitle {
-  margin: 0px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.est {
-  width: 50%;
+.card {
+  height: 300px;
+  width: 500px;
+  min-width: 250px;
+  padding: 0.5rem;
+  border-radius: 16px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.2s;
+  margin: 0;
+  scroll-snap-align: start;
+  clear: both;
+  position: relative;
 }
