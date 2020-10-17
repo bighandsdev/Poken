@@ -7,6 +7,6 @@ export default class Withdraw extends React.Component {
   }
 
   render() {
-    return <p>Withdraw</p>;
+    return <p></p>;
   }
 }

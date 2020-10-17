@@ -13,7 +13,7 @@ function App() {
   const card = () => {
     return (
       <div className="card">
-        <div className="cardheader">
+        <div id="cardheader">
           <div>
             <p>Stats</p>
           </div>
@@ -49,7 +49,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Poken</h1>
+      <h1 className="titletext">Poken</h1>
+      <div>
+        <p className="titletext" id="statement1">
+          Ether no loss
+        </p>
+        &nbsp;
+        <p className="titletext" id="statement2">
+          lottery
+        </p>
+      </div>
       {card()}
     </div>
   );

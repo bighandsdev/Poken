@@ -28,3 +28,27 @@ body {
   clear: both;
   position: relative;
 }
+#statement1 {
+  margin: 5;
+  display: inline;
+  float: left;
+  margin-bottom: 35px;
+}
+#statement2 {
+  margin: 5;
+  display: inline;
+  float: right;
+  background: linear-gradient(90deg, #0099ff, #0c31d3);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 35px;
+}
+.titletext {
+  margin: 1px;
+}
+#cardheader {
+  display: flex;
+  justify-content: space-around;
+}
