@@ -9,11 +9,11 @@ export default class Withdraw extends React.Component {
   render() {
     return (
       <div>
-        <div className="input">
+        <div className="inputbox">
           <p id="inputText">Withdraw Ether</p>
           <input placeholder="Amount"></input>
         </div>
-        <div className="button" id="withdraw">
+        <div className="eventbutton" id="withdraw">
           <a>Withdraw</a>
         </div>
       </div>

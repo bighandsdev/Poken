@@ -9,7 +9,7 @@ import InterfaceButtons from "./components/interfaceButtons.js";
 import "./App.css";
 
 function App() {
-  const [interfaced, setInterfaced] = useState("");
+  const [interfaced, setInterfaced] = useState("balance");
   const componentDidMount = async () => {};
   const card = () => {
     return (
