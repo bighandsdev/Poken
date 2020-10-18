@@ -8,19 +8,31 @@ import Withdraw from "./components/withdraw.js";
 import "./App.css";
 
 function App() {
-  var interfaced = "withdraw";
+  const [interfaced, setInterfaced] = useState("");
   const componentDidMount = async () => {};
   const card = () => {
     return (
       <div className="card">
         <div id="cardheader">
-          <div className="button" onClick={() => changeinterface("withdraw")}>
+          <div
+            className="button"
+            id={whichButtonHighlighted("balance")}
+            onClick={() => changeinterface("balance")}
+          >
             <a>Stats</a>
           </div>
-          <div className="button" onClick={() => changeinterface("deposit")}>
+          <div
+            className="button"
+            id={whichButtonHighlighted("deposit")}
+            onClick={() => changeinterface("deposit")}
+          >
             <a>Deposit</a>
           </div>
-          <div className="button" onClick={() => changeinterface("withdraw")}>
+          <div
+            className="button"
+            id={whichButtonHighlighted("withdraw")}
+            onClick={() => changeinterface("withdraw")}
+          >
             <a>Withdraw</a>
           </div>
         </div>
@@ -28,8 +40,9 @@ function App() {
       </div>
     );
   };
+
   function changeinterface(newInterface) {
-    interfaced = newInterface;
+    setInterfaced(newInterface);
   }
   const whichInterface = () => {
     var result = null;
@@ -48,6 +61,13 @@ function App() {
     }
 
     return result;
+  };
+  const whichButtonHighlighted = (buttonRepresents) => {
+    if (buttonRepresents === interfaced) {
+      return "on";
+    } else {
+      return "off";
+    }
   };
 
   return (

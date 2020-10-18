@@ -55,3 +55,9 @@ body {
 .button {
   cursor: pointer;
 }
+#off {
+  color: #514a61;
+}
+#on {
+  color: #ffffff;
+}
