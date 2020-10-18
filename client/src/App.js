@@ -4,7 +4,7 @@ import getWeb3 from "./getWeb3";
 import Balance from "./components/balance.js";
 import Deposit from "./components/deposit.js";
 import Withdraw from "./components/withdraw.js";
-import interfaceButtons from "./components/interfaceButtons.js";
+import InterfaceButtons from "./components/interfaceButtons.js";
 
 import "./App.css";
 
@@ -14,8 +14,8 @@ function App() {
   const card = () => {
     return (
       <div className="card">
-        <interfaceButtons
-          changeinterface={() => changeinterface()}
+        <InterfaceButtons
+          setInterfaced={setInterfaced}
           interfaced={interfaced}
         />
         <div>{whichInterface()}</div>

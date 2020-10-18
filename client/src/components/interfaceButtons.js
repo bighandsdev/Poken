@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function interfaceButtons() {
+export default function InterfaceButtons(props) {
   const whichButtonHighlighted = (buttonRepresents) => {
-    if (buttonRepresents === interfaced) {
+    if (buttonRepresents === props.interfaced) {
       return "on";
     } else {
       return "off";
@@ -13,21 +13,21 @@ export default function interfaceButtons() {
       <div
         className="button"
         id={whichButtonHighlighted("balance")}
-        onClick={() => changeinterface("balance")}
+        onClick={() => props.setInterfaced("balance")}
       >
         <a>Stats</a>
       </div>
       <div
         className="button"
         id={whichButtonHighlighted("deposit")}
-        onClick={() => changeinterface("deposit")}
+        onClick={() => props.setInterfaced("deposit")}
       >
         <a>Deposit</a>
       </div>
       <div
         className="button"
         id={whichButtonHighlighted("withdraw")}
-        onClick={() => changeinterface("withdraw")}
+        onClick={() => props.setInterfaced("withdraw")}
       >
         <a>Withdraw</a>
       </div>
