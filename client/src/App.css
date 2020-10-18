@@ -52,3 +52,6 @@ body {
   display: flex;
   justify-content: space-around;
 }
+.button {
+  cursor: pointer;
+}

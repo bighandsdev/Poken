@@ -8,26 +8,29 @@ import Withdraw from "./components/withdraw.js";
 import "./App.css";
 
 function App() {
-  const interfaced = "withdraw";
+  var interfaced = "withdraw";
   const componentDidMount = async () => {};
   const card = () => {
     return (
       <div className="card">
         <div id="cardheader">
-          <div>
-            <p>Stats</p>
+          <div className="button" onClick={() => changeinterface("withdraw")}>
+            <a>Stats</a>
           </div>
-          <div>
-            <p>Deposit</p>
+          <div className="button" onClick={() => changeinterface("deposit")}>
+            <a>Deposit</a>
           </div>
-          <div>
-            <p>Withdraw</p>
+          <div className="button" onClick={() => changeinterface("withdraw")}>
+            <a>Withdraw</a>
           </div>
         </div>
         <div>{whichInterface()}</div>
       </div>
     );
   };
+  function changeinterface(newInterface) {
+    interfaced = newInterface;
+  }
   const whichInterface = () => {
     var result = null;
     switch (interfaced) {

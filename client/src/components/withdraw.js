@@ -7,6 +7,16 @@ export default class Withdraw extends React.Component {
   }
 
   render() {
-    return <p></p>;
+    return (
+      <div>
+        <div className="input">
+          <p id="inputText">Withdraw Ether</p>
+          <input placeholder="Amount"></input>
+        </div>
+        <div className="button" id="withdraw">
+          <a>Withdraw</a>
+        </div>
+      </div>
+    );
   }
 }
