@@ -79,21 +79,21 @@ contract Lottery {
             uint256 balance = stakingBalance[recipient];
             if (balance > 0) {
                 poken.transfer(recipient, balance);
-            }
+            };
         }
     }
 
     function engageSessionA() public {
         require(msg.sender == owner, "caller must be the owner");
 
-        uint256 totalAmount = 0
+        uint256 totalAmount = 0;
 
         for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];
             uint256 userBalance = stakingBalance[recipient];
             if (balance > 0) {
                 totalAmount = totalAmount + balance
-            }
+            };
         }
         compound.mint(totalAmount);
     }
@@ -101,7 +101,7 @@ contract Lottery {
     function engageSessionB() public {
         require(msg.sender == owner, "caller must be the owner");
 
-        uint256 totalAmount = 0
+        uint256 totalAmount = 0;
 
         for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];

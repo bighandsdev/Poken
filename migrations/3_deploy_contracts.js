@@ -1,5 +1,5 @@
-const Adoption = artifacts.require("../contracts/Adoption.sol");
+const Lottery = artifacts.require("../contracts/Lottery.sol");
 
 module.exports = function (deployer) {
-  deployer.deploy(Adoption);
+  deployer.deploy(Lottery);
 };
