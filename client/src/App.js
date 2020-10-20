@@ -49,8 +49,11 @@ function App() {
   return (
     <div className="App">
       {ConnectWallet()}
-      <h1 className="titletext">Poken</h1>
-      <div>
+
+      <div id="logo">
+        <h1 className="titletext" id="statement">
+          Poken
+        </h1>
         <p className="titletext" id="statement1">
           Ether no loss
         </p>

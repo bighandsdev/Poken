@@ -30,6 +30,13 @@ body {
 }
 #statement1 {
   margin: 5;
+  margin-left: 10px;
+  display: inline;
+  float: left;
+  margin-top: 20px;
+}
+#statement {
+  margin: 5;
   display: inline;
   float: left;
   margin-bottom: 35px;
@@ -43,7 +50,7 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  margin-bottom: 35px;
+  margin-top: 20px;
 }
 .titletext {
   margin: 1px;
@@ -104,10 +111,15 @@ input {
   width: fit-content;
   padding: 0.5rem;
   border-radius: 16px;
-  box-shadow: -1rem 0 3rem #000;
+  background-image: linear-gradient(90deg, #1f1b27, #1f1b27);
   transition: 0.2s;
   margin: 0;
   scroll-snap-align: start;
   clear: both;
   font-size: 20px;
+}
+#logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
 }
