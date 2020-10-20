@@ -5,6 +5,7 @@ import Balance from "./components/balance.js";
 import Deposit from "./components/deposit.js";
 import Withdraw from "./components/withdraw.js";
 import InterfaceButtons from "./components/interfaceButtons.js";
+import ConnectWallet from "./components/connectWallet.js";
 
 import "./App.css";
 
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="App">
+      {ConnectWallet()}
       <h1 className="titletext">Poken</h1>
       <div>
         <p className="titletext" id="statement1">

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import "./connectWallet.css";
 
-function connectWallet(props) {
-  const [walletConnected, setWalletConnected] = useState("false");
+export default function ConnectWallet(props) {
+  const [walletConnected, setWalletConnected] = useState(false);
   const [address, setAddress] = useState("");
 
   function readableAddress(address) {
@@ -15,7 +16,7 @@ function connectWallet(props) {
 
   if (walletConnected) {
     return (
-      <div className="button">
+      <div id="connectbutton" className="button">
         <p>{readableAddress(address)}</p>
       </div>
     );
@@ -23,7 +24,7 @@ function connectWallet(props) {
 
   if (!walletConnected) {
     return (
-      <div className="button">
+      <div id="connectbutton" className="button">
         <p>Connect</p>
       </div>
     );

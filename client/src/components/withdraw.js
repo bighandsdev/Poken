@@ -14,7 +14,9 @@ export default class Withdraw extends React.Component {
           <input placeholder="Amount"></input>
         </div>
         <div className="eventbutton" id="withdraw">
-          <a>Withdraw</a>
+          <div className="buttondesign">
+            <a>Withdraw</a>
+          </div>
         </div>
       </div>
     );

@@ -14,7 +14,9 @@ export default class Deposit extends React.Component {
           <input placeholder="Amount"></input>
         </div>
         <div className="eventbutton" id="deposit">
-          <a>Deposit</a>
+          <div className="buttondesign">
+            <a>Deposit</a>
+          </div>
         </div>
       </div>
     );
