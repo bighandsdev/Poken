@@ -14,17 +14,17 @@ export default function ConnectWallet(props) {
     return `${addressChunks[0]}....${addressChunks[addressChunks.length - 1]}`;
   }
 
-  if (walletConnected) {
+  if (props.addr) {
     return (
-      <div id="connectbutton" className="button">
+      <div id="connectbutton" className="button" onClick={props.getAccount}>
         <p>{readableAddress(address)}</p>
       </div>
     );
   }
 
-  if (!walletConnected) {
+  if (!props.addr) {
     return (
-      <div id="connectbutton" className="button">
+      <div id="connectbutton" className="button" onClick={props.getAccount}>
         <p>Connect</p>
       </div>
     );

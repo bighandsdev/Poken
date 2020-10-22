@@ -26,7 +26,7 @@ function App() {
   };
 
   async function getAccount() {
-    const accounts = await ethereum.request({
+    const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     const account = accounts[0];
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <ConnectWallet />
+      <ConnectWallet getAccount={() => getAccount()} address={addr} />
 
       <div id="logo">
         <h1 className="titletext" id="statement">
