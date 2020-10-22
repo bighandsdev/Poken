@@ -11,6 +11,7 @@ import "./App.css";
 
 function App() {
   const [interfaced, setInterfaced] = useState("balance");
+  const [addr, setAddr] = useState("");
   const componentDidMount = async () => {};
   const card = () => {
     return (
@@ -24,8 +25,12 @@ function App() {
     );
   };
 
-  function changeinterface(newInterface) {
-    setInterfaced(newInterface);
+  async function getAccount() {
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const account = accounts[0];
+    setAddr(account);
   }
   const whichInterface = () => {
     var result = null;
@@ -48,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      {ConnectWallet()}
+      <ConnectWallet />
 
       <div id="logo">
         <h1 className="titletext" id="statement">
