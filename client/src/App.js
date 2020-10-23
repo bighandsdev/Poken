@@ -14,23 +14,35 @@ function App() {
   const [addr, setAddr] = useState("");
   const componentDidMount = async () => {};
   const card = () => {
-    return (
-      <div className="card">
-        <InterfaceButtons
-          setInterfaced={setInterfaced}
-          interfaced={interfaced}
-        />
-        <div>{whichInterface()}</div>
-      </div>
-    );
+    if (window.ethereum) {
+      return (
+        <div className="card">
+          <InterfaceButtons
+            setInterfaced={setInterfaced}
+            interfaced={interfaced}
+          />
+          <div>{whichInterface()}</div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="buttondesign" onClick="">
+          <p>Install Web3 provider</p>
+        </div>
+      );
+    }
   };
 
   async function getAccount() {
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    const account = accounts[0];
-    setAddr(account);
+    try {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      const account = accounts[0];
+      setAddr(account);
+    } catch (error) {
+      console.log(error);
+    }
   }
   const whichInterface = () => {
     var result = null;
@@ -53,7 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      <ConnectWallet getAccount={() => getAccount()} address={addr} />
+      <ConnectWallet getAccount={() => getAccount()} addr={addr} />
 
       <div id="logo">
         <h1 className="titletext" id="statement">
