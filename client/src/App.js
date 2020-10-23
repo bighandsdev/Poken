@@ -12,6 +12,7 @@ import "./App.css";
 function App() {
   const [interfaced, setInterfaced] = useState("balance");
   const [addr, setAddr] = useState("");
+  const [Balance, setBalance] = useState(0);
   const componentDidMount = async () => {};
   const card = () => {
     if (window.ethereum) {
@@ -39,7 +40,11 @@ function App() {
         method: "eth_requestAccounts",
       });
       const account = accounts[0];
+      const balance = await window.ethereum.request({
+        method: "eth_getBalance",
+      });
       setAddr(account);
+      setBalance(balance);
     } catch (error) {
       console.log(error);
     }
