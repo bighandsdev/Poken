@@ -1,5 +1,5 @@
 ## Poken
 
-Ethereum decentralised application
+Ethereum no loss lottery
 
-![alt text](https://github.com/bighandsdev/Poken/preview.jpg?raw=true)
+![alt text](https://github.com/bighandsdev/Poken/blob/main/Preview.png)
