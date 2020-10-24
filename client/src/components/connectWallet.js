@@ -20,7 +20,7 @@ export default function ConnectWallet(props) {
   if (props.addr) {
     return (
       <div id="connectbutton" className="button" onClick={props.getAccount}>
-        <p>{readableAddress(props.addr)}</p>
+        <p>{props.balance + readableAddress(props.addr)}</p>
       </div>
     );
   }

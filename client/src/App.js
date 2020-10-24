@@ -12,8 +12,31 @@ import "./App.css";
 function App() {
   const [interfaced, setInterfaced] = useState("balance");
   const [addr, setAddr] = useState("");
-  const [Balance, setBalance] = useState(0);
-  const componentDidMount = async () => {};
+  const [balance, setBalance] = useState("");
+  const [web3, setWeb3] = useState("");
+  const [contract, setContract] = useState("");
+  const [network, setNetwork] = useState("");
+
+  const componentDidMount = async () => {
+    try {
+      const web3 = await getWeb3();
+      const accounts = await web3.eth.getAccounts();
+      const networkId = await web3.eth.net.getId();
+
+      //const deployedNetwork = SimpleStorageContract.networks[networkId];
+      //const instance = new web3.eth.Contract(
+      //  SimpleStorageContract.abi,
+      //  deployedNetwork && deployedNetwork.address
+      //);
+      setWeb3(web3);
+    } catch (error) {
+      // Catch any errors for any of the above operations.
+      alert(
+        `Failed to load web3, accounts, or contract. Check console for details.`
+      );
+      console.error(error);
+    }
+  };
   const card = () => {
     if (window.ethereum) {
       return (
@@ -35,19 +58,11 @@ function App() {
   };
 
   async function getAccount() {
-    try {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      const account = accounts[0];
-      const balance = await window.ethereum.request({
-        method: "eth_getBalance",
-      });
-      setAddr(account);
-      setBalance(balance);
-    } catch (error) {
-      console.log(error);
-    }
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const account = accounts[0];
+    setAddr(account);
   }
   const whichInterface = () => {
     var result = null;
@@ -70,7 +85,11 @@ function App() {
 
   return (
     <div className="App">
-      <ConnectWallet getAccount={() => getAccount()} addr={addr} />
+      <ConnectWallet
+        getAccount={() => getAccount()}
+        addr={addr}
+        balance={balance}
+      />
 
       <div id="logo">
         <h1 className="titletext" id="statement">
